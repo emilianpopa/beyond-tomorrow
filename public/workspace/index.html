@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<!--
+  Beyond Tomorrow — Seed raise workspace (deck + financial model + narrative + guide + manual).
+  Single ungated URL (noindex), Beyond Tomorrow branded. The DECK is the source of truth; this
+  page and the financial model are aligned to it. Numbers: raise $1.5M @ $11M pre, $660k committed ($20k SEIS left);
+  revenue 2026 $430K -> 2027 $3.4M -> 2028 $8M -> 2029 $22.6M, media-led, split across four arms
+  (Media, Summits, Investment/SPV, Products) reconciled to the deck; the Platform base (media +
+  summits + products) is a media-led ~$15M-by-2029 business, the Investment/SPV arm earns fees only and
+  its carry is long-term upside (the 10,000x moonshot), not in the numbers. Palette colour-blind-safe.
+  Served ungated at /workspace (originally /deck/beyond-tomorrow on expandhealth.io). Prepared with Expand Health for Julian Issa.
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex, nofollow" />
+<title>Beyond Tomorrow — Seed (Confidential)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy:#0a1730; --navy2:#13284f; --ink:#111a2b; --body:#3d4759;
+    --muted:#7b8798; --line:#e6e9ef; --bg:#f6f8fc; --white:#fff;
+    --blue:#2563eb; --orange:#f97316; --amber:#d97706; --purple:#7c3aed;
+    --grad:linear-gradient(120deg,#0a1730 0%,#132a52 46%,#f97316 140%);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;background:var(--bg);color:var(--body);-webkit-font-smoothing:antialiased;line-height:1.55}
+  h1,h2,h3,h4,.disp{font-family:'Archivo','Inter',sans-serif;color:var(--ink);letter-spacing:-0.02em}
+  a{color:var(--blue);text-decoration:none}
+
+  .top{position:sticky;top:0;z-index:50;background:rgba(10,23,48,0.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,0.08)}
+  .top .wrap{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:18px;padding:12px 22px}
+  .brand{font-family:'Archivo';font-weight:900;color:#fff;font-size:16px;letter-spacing:0.01em;white-space:nowrap}
+  .brand span{color:var(--orange)}
+  .tabs{display:flex;gap:4px;margin-left:6px;flex-wrap:wrap}
+  .tab{appearance:none;border:0;background:transparent;color:#aeb9cc;font-family:'Inter';font-weight:600;font-size:13.5px;padding:8px 13px;border-radius:8px;cursor:pointer;white-space:nowrap}
+  .tab:hover{color:#fff;background:rgba(255,255,255,0.06)}
+  .tab.on{color:#fff;background:rgba(249,115,22,0.18);box-shadow:inset 0 0 0 1px rgba(249,115,22,0.5)}
+  .conf{margin-left:auto;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;color:#7f8ba0;white-space:nowrap}
+  @media(max-width:760px){.conf{display:none}}
+
+  .page{max-width:1080px;margin:0 auto;padding:34px 22px 90px}
+  section.view{display:none}
+  section.view.on{display:block;animation:fade .25s ease}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  .eyebrow{font-size:11.5px;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+  h2.head{font-size:30px;line-height:1.1;margin-bottom:8px}
+  .sub{font-size:16px;color:var(--body);max-width:780px}
+  .block{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px;margin-top:20px}
+  .block h3{font-size:18px;margin-bottom:6px}
+  .block h3 .n{color:var(--muted);font-weight:700;font-size:13px;margin-right:8px}
+  p.mt{margin-top:10px}
+  .small{font-size:13px;color:var(--muted)}
+  .divider{height:1px;background:var(--line);margin:26px 0}
+
+  .hero{background:var(--grad);border-radius:18px;padding:52px 42px;color:#fff;position:relative;overflow:hidden}
+  .hero:after{content:"";position:absolute;right:-80px;top:-80px;width:340px;height:340px;background:radial-gradient(circle,rgba(249,115,22,0.55),transparent 70%);filter:blur(10px)}
+  .hero .kh{font-size:12px;letter-spacing:0.24em;text-transform:uppercase;color:#ffd9b8;font-weight:700}
+  .hero h1{color:#fff;font-size:62px;line-height:0.98;font-weight:900;margin:14px 0 0}
+  .hero .tag{font-size:18px;color:#e7edf7;margin-top:18px;max-width:660px;line-height:1.5}
+  .hero .two{display:flex;gap:10px;margin-top:22px;flex-wrap:wrap}
+  .hero .two .b{background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.16);border-radius:10px;padding:11px 15px;font-size:13.5px;color:#eaf0fb}
+  .hero .two .b b{color:#fff}
+  .hero .guests{margin-top:22px;font-size:13px;color:#c7d2e4;line-height:1.7}
+  .hero .guests b{color:#fff;font-weight:600}
+  @media(max-width:640px){.hero h1{font-size:40px}.hero{padding:34px 24px}}
+
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:18px}
+  .kpi{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:18px 16px}
+  .kpi .n{font-family:'Archivo';font-weight:800;font-size:26px;color:var(--navy);line-height:1}
+  .kpi .l{font-size:12.5px;color:var(--muted);margin-top:7px;line-height:1.35}
+  @media(max-width:720px){.kpis{grid-template-columns:1fr 1fr}}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:20px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:20px}
+  .grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:20px}
+  @media(max-width:720px){.grid2,.grid3,.grid4{grid-template-columns:1fr}}
+  .pill{display:inline-block;font-size:11px;font-weight:700;letter-spacing:0.04em;padding:4px 10px;border-radius:999px;background:#eef2fb;color:var(--blue)}
+  .pill.o{background:#fff1e6;color:var(--orange)}
+
+  .move{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:18px}
+  .move .mp{font-family:'Archivo';font-weight:800;font-size:14px;color:var(--ink)}
+  .move .ms{font-size:12px;color:var(--orange);font-weight:700;margin:2px 0 8px}
+  .move p{font-size:13px;color:var(--body);line-height:1.5}
+
+  ul.list{list-style:none;margin-top:10px}
+  ul.list li{position:relative;padding:5px 0 5px 18px;font-size:14.5px;color:var(--body)}
+  ul.list li:before{content:"";position:absolute;left:0;top:12px;width:6px;height:6px;border-radius:50%;background:var(--orange)}
+  ul.list li b{color:var(--ink)}
+
+  .team{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:14px}
+  @media(max-width:720px){.team{grid-template-columns:1fr 1fr}}
+  .mem{border:1px solid var(--line);border-radius:11px;padding:15px}
+  .mem h4{font-size:15px;margin-bottom:2px}
+  .mem .r{font-size:11.5px;color:var(--orange);font-weight:700;text-transform:uppercase;letter-spacing:0.03em}
+  .mem p{font-size:12.5px;color:var(--body);margin-top:6px;line-height:1.45}
+
+  .tblwrap{overflow-x:auto;margin-top:14px;border:1px solid var(--line);border-radius:12px}
+  table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:560px}
+  th,td{padding:11px 13px;text-align:right;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums;white-space:nowrap}
+  th:first-child,td:first-child{text-align:left;white-space:normal}
+  thead th{background:#f2f5fb;color:var(--muted);font-weight:700;font-size:11.5px;text-transform:uppercase;letter-spacing:0.04em}
+  td.lab{color:var(--ink);font-weight:500}
+  tr.sub-t td{font-weight:700;color:var(--ink);background:#f7f9fd;border-top:1px solid var(--navy)}
+  tr.tot td{font-weight:800;color:var(--ink);background:#fbfcfe;border-top:2px solid var(--orange)}
+  td.up{color:var(--orange);font-weight:600}
+  caption{caption-side:top;text-align:left;font-size:12px;color:var(--muted);padding:0 0 8px}
+
+  /* stacked revenue chart */
+  .chart{margin-top:12px}
+  .chart .row{display:grid;grid-template-columns:56px 1fr 96px;align-items:center;gap:12px;margin:10px 0}
+  .chart .yr{font-size:12.5px;color:var(--muted);font-weight:600}
+  .chart .track{background:#eef2f8;border-radius:6px;height:24px;display:flex;overflow:hidden}
+  .chart .seg{height:100%}
+  .chart .seg.base{background:linear-gradient(90deg,var(--navy),var(--blue))}
+  .chart .seg.up{background:var(--orange)}
+  .chart .val{font-size:12.5px;color:var(--ink);font-weight:700;text-align:right}
+  .legend{display:flex;gap:16px;margin-top:12px;font-size:12px;color:var(--muted);flex-wrap:wrap}
+  .legend i{display:inline-block;width:11px;height:11px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+
+  .callout{border-left:4px solid var(--orange);background:#fff8f2;border-radius:0 12px 12px 0;padding:18px 20px;margin-top:20px}
+  .callout.blue{border-left-color:var(--blue);background:#f2f6ff}
+  .callout h4{font-size:15px;margin-bottom:6px}
+  .callout p{font-size:13.5px;color:var(--body)}
+
+  .flag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:0.05em;padding:2px 8px;border-radius:6px;text-transform:uppercase;vertical-align:1px}
+  .flag.solid{background:#e7f0ff;color:#1d4ed8}
+  .flag.ok{background:#eaf6ef;color:#0f7a4d}
+  .flag.warn{background:#fff1e6;color:#c2410c}
+
+  .steps{counter-reset:s;margin-top:8px}
+  .steps li{list-style:none;position:relative;padding:12px 0 12px 42px;border-bottom:1px solid var(--line);font-size:14.5px}
+  .steps li:last-child{border-bottom:0}
+  .steps li:before{counter-increment:s;content:counter(s);position:absolute;left:0;top:11px;width:26px;height:26px;border-radius:50%;background:var(--navy);color:#fff;font-family:'Archivo';font-weight:800;font-size:13px;display:flex;align-items:center;justify-content:center}
+  .steps li b{color:var(--ink)}
+
+  .dlbtn{display:inline-flex;align-items:center;gap:9px;background:var(--orange);color:#0a1730;font-weight:800;font-family:'Archivo';font-size:14px;padding:12px 20px;border-radius:11px;margin-top:16px}
+  .dlbtn:hover{filter:brightness(1.06)}
+
+  /* narrative */
+  .narr .lead{font-size:16px;color:var(--ink);line-height:1.65;font-weight:500}
+  .narr p{font-size:14.5px;color:var(--body);line-height:1.65;margin-top:10px}
+  .nlabel{font-family:'Archivo',sans-serif;font-size:12px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--orange);margin-top:24px}
+  ul.vlist{list-style:none;margin-top:10px}
+  ul.vlist li{position:relative;padding:7px 0 7px 20px;font-size:14.5px;color:var(--body);line-height:1.6}
+  ul.vlist li:before{content:"";position:absolute;left:0;top:14px;width:7px;height:7px;border-radius:2px;background:var(--navy)}
+  ul.vlist .vn{color:var(--ink);font-weight:700}
+  .narr .oneline{margin-top:22px;background:var(--navy);color:#fff;border-radius:12px;padding:18px 22px;font-size:15.5px;font-weight:600;line-height:1.5}
+  .narr .oneline b{color:var(--orange)}
+
+  .foot{max-width:1080px;margin:0 auto;padding:24px 22px 60px;color:var(--muted);font-size:12px;line-height:1.6;border-top:1px solid var(--line)}
+  .foot b{color:var(--body)}
+  .cobrand{margin-top:6px;font-size:11.5px;color:#9aa4b4}
+
+  @media print{.top{position:static}.tab{display:none}section.view{display:block!important}.page{max-width:none}}
+</style>
+</head>
+<body>
+
+<div class="top">
+  <div class="wrap">
+    <div class="brand">BEYOND <span>TOMORROW</span></div>
+    <div class="tabs">
+      <button class="tab on" data-t="deck">Deck</button>
+      <button class="tab" data-t="model">Financial Model</button>
+      <button class="tab" data-t="narrative">Narrative</button>
+      <button class="tab" data-t="guide">Model Guide</button>
+      <button class="tab" data-t="manual">How to Use</button>
+    </div>
+    <div class="conf">Confidential · Seed 2026</div>
+  </div>
+</div>
+
+<div class="page">
+
+<!-- ===================== DECK ===================== -->
+<section class="view on" id="deck">
+  <div class="hero">
+    <div class="kh">Seed Round · July 2026</div>
+    <h1>Beyond&nbsp;Tomorrow</h1>
+    <div class="tag">A high-trust media company and community for a fast-changing world. We build the trust, then use it to fund and build the tools for a longevity and post-singularity future.</div>
+    <div class="two">
+      <div class="b"><b>Part one:</b> a 40–60× media &amp; summit platform that stabilises and de-risks</div>
+      <div class="b"><b>Part two:</b> a 10,000× moonshot, capital and tools to change the world</div>
+    </div>
+    <div class="guests">Guests &amp; stages include <b>Peter Diamandis</b>, <b>Dave Asprey</b>, <b>Dr William Li</b>, <b>Emad Mostaque</b>, <b>Sophie Trudeau</b> · Davos (WEF), Superhuman, The Longevity Show, AGI Conference</div>
+  </div>
+
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">The opportunity</div>
+    <h2 class="head">Trust is the scarce asset in the AI &amp; longevity era</h2>
+    <p class="sub mt">The world is changing faster than anyone realises. Technology grows exponentially while people feel more dysregulated, disconnected and disinformed. Beyond Tomorrow is the fastest-growing new media company and community in longevity and AI, giving members the content, gatherings and tools to thrive. Attention plus trust is the moat, and it compounds.</p>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">The long-term play</div>
+    <h2 class="head">Four moves, one flywheel</h2>
+    <p class="sub">High-integrity content creates trust. Trust compounds into community, which becomes distribution and revenue. The summits connect capital to trillion-dollar opportunities, and we use that capital and distribution to build the tools. Two businesses, one de-risking the other.</p>
+    <div class="grid4">
+      <div class="move"><div class="mp">Media</div><div class="ms">The trust engine</div><p>Podcast, documentary and newsletter. Original, high-quality, rigorous reporting.</p></div>
+      <div class="move"><div class="mp">Summits</div><div class="ms">The gathering place</div><p>High-growth community and major summits with a leading conference provider. Audience becomes movement.</p></div>
+      <div class="move"><div class="mp">Investment</div><div class="ms">The capital engine</div><p>5–10 SPVs a year, $1–5M each, into potential trillion-dollar deal-flow. BT sponsors and earns carry off the summits.</p></div>
+      <div class="move"><div class="mp">Tools</div><div class="ms">The endgame</div><p>Products for the community, once distribution and capital are proven.</p></div>
+    </div>
+  </div>
+
+  <div class="grid2">
+    <div class="block" style="margin-top:0">
+      <div class="pill">Proof</div>
+      <h3 style="margin-top:10px">Already revered in the space</h3>
+      <p class="mt small" style="font-size:14px;color:var(--body)">"Julian is one of my favorite podcasters. He asks questions no one else does."</p>
+      <p class="small" style="margin-top:6px"><b style="color:var(--ink)">Nidhi Pandya</b>, leading Ayurvedic practitioner · 250k IG</p>
+      <ul class="list" style="margin-top:14px">
+        <li>Multiple <b>five-figure+ sponsor deals</b> with leading brands</li>
+        <li>Partnership with a <b>major global conference provider</b></li>
+        <li>SEIS/EIS advanced assurance approved (UK)</li>
+      </ul>
+    </div>
+    <div class="block" style="margin-top:0">
+      <div class="pill o">Founder</div>
+      <h3 style="margin-top:10px">Julian Issa · Founder &amp; CEO</h3>
+      <ul class="list">
+        <li>Hosted the <b>XPRIZE Healthspan Awards</b> alongside Peter Diamandis and the <b>AGI Conference</b> (SF); stages include Davos (WEF), The Longevity Show, Life Summit, Superhuman</li>
+        <li>Former <b>Newsweek</b> journalist, 1,500+ interviews with Fortune-40 CEOs and heads of state</li>
+        <li>Exited founder (first startup sold to a boutique PE firm); 65k+ followers</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">The team</div>
+    <h2 class="head">Operators who have done this before</h2>
+    <p class="sub">A roster hired from the teams that built the biggest voices in media.</p>
+    <div class="team">
+      <div class="mem"><h4>Leroy Ter Braak</h4><div class="r">CSO</div><p>Award-winning YouTube strategist, 2.7B+ views, with brands like Ubisoft and some of the largest creators on YouTube.</p></div>
+      <div class="mem"><h4>Joshua Landua</h4><div class="r">COO</div><p>Helped scale Jay Shetty into a global brand.</p></div>
+      <div class="mem"><h4>Kimon Candiotes</h4><div class="r">Chief Creative Officer</div><p>Once-in-a-generation young creative talent.</p></div>
+      <div class="mem"><h4>Bev &amp; Darcy</h4><div class="r">Podcast agents</div><p>Ex-right hand to Dave Asprey.</p></div>
+      <div class="mem"><h4>Joe Gannon</h4><div class="r">Advisor</div><p>Scaled Chris Williamson, Ali Abdaal and Sahil Bloom.</p></div>
+      <div class="mem"><h4>Sami Moughrabie</h4><div class="r">Chief Investment Officer</div><p>Board member and investor. GP and founder, Atmos Ventures (top-0.5% deep-tech global fund).</p></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <div class="eyebrow">The ask</div>
+    <h2 class="head">$1.5M seed at $11M pre-money</h2>
+    <p class="sub mt">$660k committed so far. UK investors: only $20k SEIS left (advanced assurance approved), EIS available. All investors are GPs or founders of deep-tech funds and serial entrepreneurs, including decacorn founders. This round takes the media arm to profitability, accelerates the summit progression, and prepares the capital vehicle.</p>
+    <div class="tblwrap">
+      <table>
+        <caption>Use of funds — $1.5M raise</caption>
+        <thead><tr><th>Category</th><th>Amount</th><th>%</th></tr></thead>
+        <tbody>
+          <tr><td class="lab">Team &amp; Operations</td><td>$600,000</td><td>40%</td></tr>
+          <tr><td class="lab">Content &amp; Distribution</td><td>$525,000</td><td>35%</td></tr>
+          <tr><td class="lab">Summit Execution</td><td>$225,000</td><td>15%</td></tr>
+          <tr><td class="lab">Working Capital Buffer</td><td>$150,000</td><td>10%</td></tr>
+          <tr class="tot"><td>Total raise</td><td>$1,500,000</td><td>100%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <a class="dlbtn" href="/workspace/deck.pdf?v=11">↓ Download the full deck (PDF)</a>
+  </div>
+</section>
+
+<!-- ===================== FINANCIAL MODEL ===================== -->
+<section class="view" id="model">
+  <div class="eyebrow">Financial model</div>
+  <h2 class="head">Revenue build, aligned to the deck</h2>
+  <p class="sub">Revenue in USD, built bottom-up across the four arms. Media is the primary driver; the Investment / SPV arm earns management fees only, and its carry is long-term upside that is not in these numbers.</p>
+  <div style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+    <a class="dlbtn" href="/workspace/financial-model">Open the full detailed model →</a>
+    <a class="dlbtn" style="background:var(--navy);color:#fff" href="/workspace/model.pdf?v=11">↓ Model (PDF)</a>
+    <a class="dlbtn" style="background:#eef2fb;color:var(--blue)" href="/workspace/model.xlsx?v=11">↓ Model (Excel)</a>
+  </div>
+  <p class="small" style="margin-top:8px">The tab below is the summary. The full model (P&amp;L, per-arm build, summit JV, SPV mechanics, capital &amp; return, scenarios, enterprise value, assumptions) opens on its own page and is in the PDF. The Excel is a live, formula-driven workbook — edit any yellow assumption and the P&amp;L recalculates.</p>
+
+  <div class="block">
+    <h3><span class="n">1</span>Revenue by arm</h3>
+    <div class="tblwrap">
+      <table>
+        <thead><tr><th>USD 000s</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th></tr></thead>
+        <tbody>
+          <tr><td class="lab">Media — sponsorship, AdSense, newsletter</td><td>300</td><td>1,800</td><td>3,900</td><td>11,580</td></tr>
+          <tr><td class="lab">Summits — tickets + sponsors (conference partner)</td><td>130</td><td>1,600</td><td>3,000</td><td>8,000</td></tr>
+          <tr><td class="lab">Products (from 2028)</td><td>—</td><td>—</td><td>1,000</td><td>2,700</td></tr>
+          <tr class="sub-t"><td>Platform subtotal (40–60× base)</td><td>430</td><td>3,400</td><td>7,900</td><td>22,280</td></tr>
+          <tr><td class="lab">Investment — SPV fees only <span class="up">(carry = long-term upside)</span></td><td>—</td><td>—</td><td>96</td><td>320</td></tr>
+          <tr class="tot"><td>Total revenue</td><td>430</td><td>3,400</td><td>8,000</td><td>22,600</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="small" style="margin-top:8px">Figures are the media-led build; the SPV arm is shown at fees only (carry is long-term upside, not in these numbers). Assumptions on the Model Guide tab.</div>
+  </div>
+
+  <div class="block">
+    <h3><span class="n">2</span>The shape of the raise</h3>
+    <div class="chart">
+      <div class="row"><div class="yr">2026</div><div class="track"><div class="seg base" style="width:1.9%"></div><div class="seg up" style="width:0%"></div></div><div class="val">$430k</div></div>
+      <div class="row"><div class="yr">2027</div><div class="track"><div class="seg base" style="width:15.0%"></div><div class="seg up" style="width:0.1%"></div></div><div class="val">$3.4M</div></div>
+      <div class="row"><div class="yr">2028</div><div class="track"><div class="seg base" style="width:35.0%"></div><div class="seg up" style="width:0.4%"></div></div><div class="val">$8.0M</div></div>
+      <div class="row"><div class="yr">2029</div><div class="track"><div class="seg base" style="width:98.7%"></div><div class="seg up" style="width:1.4%"></div></div><div class="val">$22.6M</div></div>
+    </div>
+    <div class="legend"><span><i style="background:linear-gradient(90deg,var(--navy),var(--blue))"></i>Platform base (media + summits + products)</span><span><i style="background:var(--orange)"></i>Investment / SPV upside</span></div>
+    <div class="callout blue"><p><b>Why it is built this way:</b> the business is media-led: media drives the platform to ~$22.6M by 2029. The Investment / SPV arm earns only management fees in these numbers (~$320k by 2029); its carry is genuine long-term upside, deliberately kept out so the headline is fully underwritable. So the "show me the numbers" investor underwrites a real $22.6M business, and the carry is free optionality on top.</p></div>
+  </div>
+
+  <div class="grid2">
+    <div class="block" style="margin-top:0">
+      <h3><span class="n">3</span>Use of funds — $1.5M</h3>
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>Category</th><th>Amount</th><th>%</th></tr></thead>
+          <tbody>
+            <tr><td class="lab">Team &amp; Operations</td><td>$600k</td><td>40%</td></tr>
+            <tr><td class="lab">Content &amp; Distribution</td><td>$525k</td><td>35%</td></tr>
+            <tr><td class="lab">Summit Execution</td><td>$225k</td><td>15%</td></tr>
+            <tr><td class="lab">Working Capital</td><td>$150k</td><td>10%</td></tr>
+            <tr class="tot"><td>Total</td><td>$1,500k</td><td>100%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small" style="margin-top:10px">$660k committed. $20k SEIS remaining (advanced assurance approved).</p>
+    </div>
+    <div class="block" style="margin-top:0">
+      <h3><span class="n">4</span>Summit build · a major conference provider</h3>
+      <p class="small mt">A 12-month joint venture with a <b>major global conference provider</b>: three satellite activations in the US and Europe that prove the format, then a standalone flagship summit in the US.</p>
+      <div class="tblwrap">
+        <table>
+          <thead><tr><th>Stage</th><th>Revenue</th></tr></thead>
+          <tbody>
+            <tr><td class="lab">2026 · Two satellite activations (US)</td><td>$186–276k</td></tr>
+            <tr><td class="lab">2027 · Satellite (Europe) + flagship summit (US, Sept)</td><td>$1.2–1.8M</td></tr>
+            <tr><td class="lab">2028+ · US, Europe &amp; Asia editions</td><td>$3.0M+</td></tr>
+            <tr class="tot"><td>Net margin</td><td>~0% Y1 · ~45% Y2 · ~47% Y3</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="small" style="margin-top:10px">Break-even in 2026 by design (the three data points are the asset), then a ~6× jump into the flagship summit: title sponsors $50k+, 300+ VIP passes at $2k.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <h4>Profitability &amp; the raise</h4>
+    <p>The $1.5M takes the company to profitability in 2028 and funds the summit progression and the capital-vehicle setup, reaching a ~41% EBITDA margin (~$9.2M) by 2029 as high-margin media dominates the mix. None of the profitability depends on SPV carry, which is excluded from these numbers.</p>
+  </div>
+</section>
+
+<!-- ===================== NARRATIVE ===================== -->
+<section class="view" id="narrative">
+  <div class="eyebrow">Narrative</div>
+  <h2 class="head">The story the numbers tell</h2>
+  <p class="sub">How to read the model in plain terms. Written for you to walk an investor through, and clear enough to share.</p>
+
+  <div class="block narr">
+    <p class="lead">Beyond Tomorrow is two businesses in one, and the model is built that way on purpose. A media and summit platform that already works and can stand on its own, and an investment engine on top that turns the audience and the summits into deal-flow and carry. The first de-risks the second.</p>
+
+    <div class="nlabel">The numbers that carry the whole story</div>
+    <ul class="vlist">
+      <li><span class="vn">$22.6 million of revenue by 2029.</span> From $430k in 2026, and it is media that drives the growth.</li>
+      <li><span class="vn">Breakeven in 2027, profitable from 2028,</span> reaching ~$9.2M EBITDA by 2029. A real, underwritable media business.</li>
+      <li><span class="vn">The SPV arm earns only a 0.8% fee here (~$320k by 2029).</span> Its carry is real long-term upside, deliberately kept out of the headline.</li>
+      <li><span class="vn">$1.5M raise at $11M pre, $660k already committed.</span> It takes the company to profit by 2028 and prepares the capital vehicle.</li>
+    </ul>
+
+    <div class="nlabel">Read it as a base case plus upside</div>
+    <p>This is the most important point in the model, and it maps to the two kinds of investor in this round. The base case is media, summits and products, run against an audience Beyond Tomorrow already has, 185,000 listeners a month. The company reaches a real, profitable ~$22.6 million business by 2029, media-led. The SPV carry sits on top as upside, not in the numbers. So the investor who needs to see the numbers can underwrite the platform, and the investor who backs the founder buys the moonshot, and neither has to believe the other's case.</p>
+
+    <div class="nlabel">Where the upside is created: 2027 and 2028</div>
+    <p>2027 is the inflection. The Summit launches with a major conference provider, a satellite in June and the flagship in September, and the LP relationships for the capital vehicle get locked. 2028 is where the two engines both fire: the company reaches profitability, products launch, and the first SPVs are deployed. That is the year media compounds hardest, and it is what carries 2029 to $22.6 million.</p>
+
+    <div class="nlabel">Why the platform is credible</div>
+    <p>The media build is anchored to real, signed sponsors and a growing audience, and the 2028–29 media numbers are the ones Beyond Tomorrow has already modelled. The summit economics are grounded in the conference-provider partnership, which shares production cost. Products launch only once distribution is proven. The single biggest bet, the SPV carry, is named openly rather than buried, and it is the layer, not the foundation.</p>
+
+    <div class="oneline">In one line: <b>a media-led business reaching ~$22.6M by 2029, profitable from 2028, with the SPV carry as genuine long-term upside that is not even in the numbers. The base is underwritable, the moonshot is free.</b></div>
+  </div>
+</section>
+
+<!-- ===================== MODEL GUIDE ===================== -->
+<section class="view" id="guide">
+  <div class="eyebrow">Model guide · assumptions</div>
+  <h2 class="head">Every assumption, flagged</h2>
+  <p class="sub">The deck is the source of truth; the model reconciles to it. Each arm is flagged by how much to trust it, so you know exactly where to push. These are the inputs for you and Julian to sign off.</p>
+
+  <div class="block">
+    <h3>Media <span class="flag warn">Aggressive ramp — the driver</span></h3>
+    <ul class="list">
+      <li>Two flagship + two mid-tier sponsors, plus AdSense / YouTube Partner and newsletter placements.</li>
+      <li>Scales to ~$11.6M by 2029, a large part of the $22.6M now that carry is excluded. Exits 2026 at ~$35k MRR.</li>
+      <li><b>Sign off:</b> the sponsor ramp (1 → 3 flagship by 2029) and $35k MRR by August 2026.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h3>Summits <span class="flag warn">Aggressive in 2027</span></h3>
+    <ul class="list">
+      <li>2026 two satellite activations (US), break-even by design ($130k to BT); 2027 satellite (Europe) + flagship summit (US) in Sept, with a major conference provider ($1.6M); 2028 $3.0M; 2029 $8.0M.</li>
+      <li><b>Flag:</b> grounded in Julian's JV proposal (2026 $186–276k break-even → 2027 $1.2–1.8M → 2028+ $3M+, ~45–47% margin). The open call is whether company revenue counts the summit gross or Beyond Tomorrow's JV share.</li>
+      <li><b>Sign off:</b> summits per year, tickets sold × price, sponsor $ per summit.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h3>Products <span class="flag ok">Reasonable</span> <span class="flag warn">Aggressive 2029</span></h3>
+    <ul class="list">
+      <li>Co-branded longevity products, from 2028 → $2.7M by 2029 (~50% COGS). No e-learning line.</li>
+      <li><b>Sign off:</b> product timing, and whether in-house or licensed.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h3>Investment / SPV <span class="flag solid">Fees only</span></h3>
+    <ul class="list">
+      <li>BT originates SPVs from summit deal-flow and earns a <b>0.8% management fee</b> on AUM (Julian's input).</li>
+      <li>Fees: none in 2027, 2028 $96k, 2029 $320k, on AUM rising to ~$40M; first SPVs deployed in 2028.</li>
+      <li><b>Carry is excluded</b> from the model; it only crystallises on exits years out, so it is genuine long-term upside, not in the headline.</li>
+      <li><b>Sign off:</b> the AUM ramp and deployment pace.</li>
+    </ul>
+  </div>
+
+  <div class="callout blue">
+    <h4>Cross-cutting, to confirm</h4>
+    <p>$1.5M at $11M pre, $660k committed, $20k SEIS left (from the deck). Company profitable in 2028, breakeven in 2027. Calendar-year 2026–2029 basis. Once these and the four arms are ticked, the numbers lock into the Excel model and this page together.</p>
+  </div>
+</section>
+
+<!-- ===================== HOW TO USE ===================== -->
+<section class="view" id="manual">
+  <div class="eyebrow">How to use this</div>
+  <h2 class="head">Your one link for the raise</h2>
+  <p class="sub">Everything an investor needs in a single link: the story, the numbers, how they are built, and the deck to download. The deck is the source of truth; this page and the model are aligned to it.</p>
+
+  <div class="block">
+    <h3>Sharing it</h3>
+    <ul class="list">
+      <li><b>Link:</b> expandhealth.io/deck/beyond-tomorrow</li>
+      <li><b>No login.</b> Just open it. The page is no-index, so it will not show up in search, but anyone with the link can view it.</li>
+      <li>The full deck downloads from the Deck tab, and Julian tracks views separately on DocSend.</li>
+      <li>Fully responsive and prints cleanly to PDF.</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h3>How to present it</h3>
+    <ol class="steps">
+      <li><b>Deck tab</b> — the story, the traction, the four moves, and the two-business framing.</li>
+      <li><b>Financial Model tab</b> — anchor on the split: a media-led business reaching ~$22.6M by 2029, with the SPV carry as long-term upside.</li>
+      <li><b>Narrative tab</b> — the plain-language walkthrough, built for you to talk over.</li>
+      <li><b>Model Guide tab</b> — for the technical investor: every assumption, flagged, and the four SPV parameters.</li>
+    </ol>
+  </div>
+
+  <div class="callout blue">
+    <h4>Two investors, one page</h4>
+    <p>For the "I believe in you" investor, lead with the moonshot and the movement. For the "show me the numbers" investor, lead with the platform base and the Model Guide. The page is built so you can go either way from the same link.</p>
+  </div>
+</section>
+
+</div>
+
+<div class="foot">
+  <b>Confidential.</b> This page is private and shared on the understanding that it is not copied, forwarded or disclosed without permission. The deck is the source of truth; revenue figures are a bottom-up build reconciled to it and are projections, not guarantees. Beyond Tomorrow Media Ltd · SEIS/EIS advanced assurance approved.
+  <div class="cobrand">Workspace prepared with Expand Health for Julian Issa · September 2026.</div>
+</div>
+
+<script>
+  (function(){
+    var tabs=document.querySelectorAll('.tab');
+    var views=document.querySelectorAll('.view');
+    function show(t){
+      tabs.forEach(function(b){b.classList.toggle('on',b.dataset.t===t);});
+      views.forEach(function(v){v.classList.toggle('on',v.id===t);});
+      window.scrollTo({top:0,behavior:'smooth'});
+    }
+    tabs.forEach(function(b){b.addEventListener('click',function(){show(b.dataset.t);});});
+  })();
+</script>
+</body>
+</html>

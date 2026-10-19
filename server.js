@@ -27,7 +27,17 @@ fs.mkdirSync(DATA_DIR, { recursive: true });
 
 app.set('trust proxy', 1);
 app.use(express.json({ limit: '16kb' }));
-app.use(express.static(path.join(__dirname), { extensions: ['html'] }));
+// The Beyond Tomorrow investor workspace (deck, model, guide). Ungated so Julian can forward
+// it, but never indexed and never cached, so a corrected model is not served stale.
+app.use('/workspace', (req, res, next) => {
+  res.set('Cache-Control', 'no-store');
+  res.set('X-Robots-Tag', 'noindex, nofollow');
+  if (req.path.endsWith('.xlsx')) res.attachment('Beyond Tomorrow Financial Model.xlsx');
+  next();
+});
+
+// Only public/ is served. Serving the repo root exposed server.js and data/ over HTTP.
+app.use(express.static(path.join(__dirname, 'public'), { extensions: ['html'] }));
 
 // Crude per IP throttle. A public form on the open internet gets hit.
 const hits = new Map();
