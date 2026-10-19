@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<!--
+  Beyond Tomorrow — DETAILED financial model (deck-aligned, media-led). Tabbed, print-friendly.
+  Per Julian: numbers back to the deck ($430K -> $22.6M by 2029), MEDIA is the primary driver,
+  SPV = 0.8% mgmt fee on AUM with NO carry in the horizon (long-term upside), Products is a single
+  line from 2028 (e-learning dropped). Partner/venue names generic. /workspace/financial-model.
+-->
+<html lang="en"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="robots" content="noindex, nofollow"/><title>Beyond Tomorrow — Financial Model (Confidential)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--navy:#0a1730;--blue:#2563eb;--or:#f97316;--ink:#111a2b;--grey:#4a5568;--grey-lt:#8a94a3;--band:#f4f7fc;--hair:#e6e9ef}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:'Inter',-apple-system,BlinkMacSystemFont,Arial,sans-serif;background:#e9edf3;color:var(--ink);-webkit-font-smoothing:antialiased;line-height:1.5}
+  .page{max-width:1000px;margin:0 auto;background:#fff;padding:52px 60px;box-shadow:0 4px 30px rgba(0,0,0,0.12)}
+  h1,h2,h3,.brand{font-family:'Archivo',sans-serif;letter-spacing:-0.02em}
+  .brand{font-weight:900;font-size:16px;color:var(--navy)}.brand span{color:var(--or)}
+  .eyebrow{color:var(--or);font-size:11.5px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;margin:14px 0 10px}
+  h1{font-size:34px;font-weight:900;color:var(--navy)}
+  .sub{color:var(--grey);font-size:14.5px;margin-top:10px;max-width:770px}
+  .meta{color:var(--grey-lt);font-size:12px;margin-top:12px;font-style:italic}
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin:24px 0 4px}
+  .kpi{padding:6px 20px 6px 0;border-right:1px solid var(--hair)}
+  .kpi:last-child{border-right:none}
+  .kpi .n{font-family:'Archivo';font-size:26px;font-weight:800;color:var(--navy);line-height:1}
+  .kpi .l{font-size:12px;color:var(--grey);margin-top:8px;line-height:1.35}
+  h2{font-size:19px;font-weight:800;color:var(--navy);margin:6px 0 3px}
+  .dur{color:var(--grey-lt);font-size:12.5px;font-style:italic;margin-bottom:12px}
+  .tw{overflow-x:auto}
+  table.fm{width:100%;border-collapse:collapse;font-size:12.5px;margin:8px 0 4px;min-width:560px}
+  table.fm th,table.fm td{text-align:right;padding:6px 10px;border-bottom:1px solid var(--hair);white-space:nowrap;font-variant-numeric:tabular-nums}
+  table.fm th:first-child,table.fm td.c1{text-align:left;white-space:normal}
+  table.fm thead th{background:var(--navy);color:#fff;text-transform:uppercase;font-size:10px;letter-spacing:0.04em;font-weight:700}
+  table.fm td.c1{color:var(--ink);font-weight:500}
+  table.fm tr.head td{background:var(--band);color:var(--navy);font-weight:800;text-transform:uppercase;font-size:10.5px;letter-spacing:0.04em}
+  table.fm tr.sub td{font-weight:700;color:var(--navy);border-top:1px solid var(--navy);background:#fbfcfe}
+  table.fm tr.tot td{font-weight:800;color:#fff;background:var(--navy)}
+  table.fm tr.tot.o td{background:var(--or);color:var(--navy)}
+  .neg{color:#c2410c}.up{color:var(--or);font-weight:600}
+  .foot{margin-top:36px;padding-top:14px;border-top:1px solid var(--hair);font-size:11px;color:var(--grey-lt);font-style:italic}
+  .flag{display:inline-block;font-size:9px;font-weight:800;letter-spacing:0.04em;padding:1px 7px;border-radius:6px;text-transform:uppercase;vertical-align:1px}
+  .flag.solid{background:#e7f0ff;color:#1d4ed8}.flag.warn{background:#fff1e6;color:#c2410c}.flag.ok{background:#eaf6ef;color:#0f7a4d}
+  .note{background:var(--band);border-left:3px solid var(--or);border-radius:0 6px 6px 0;padding:12px 16px;margin:14px 0 2px;font-size:12.5px;color:var(--grey);line-height:1.6}
+  .note.blue{border-left-color:var(--blue)}
+  .note b{color:var(--navy)}
+  .tabnav{position:sticky;top:0;z-index:5;background:#fff;display:flex;flex-wrap:wrap;gap:7px;padding:16px 0 12px;margin-top:22px;border-bottom:1px solid var(--hair)}
+  .tbtn{font:inherit;font-size:12.5px;font-weight:600;color:var(--navy);background:#fff;border:1px solid var(--hair);border-radius:16px;padding:6px 13px;cursor:pointer;white-space:nowrap}
+  .tbtn:hover{background:var(--band)}
+  .tbtn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+  .panes{min-height:560px}
+  .pane{display:none}.pane.active{display:block}
+  .narr .lead{font-size:15.5px;color:var(--ink);line-height:1.65;margin-bottom:14px}
+  .narr p{font-size:14px;color:var(--grey);line-height:1.7;margin-bottom:12px}
+  .narr .nlabel{font-size:11.5px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;color:var(--or);margin:22px 0 8px;font-family:'Archivo'}
+  ul.vlist{list-style:none;margin:8px 0 12px}
+  ul.vlist li{position:relative;padding-left:17px;margin-bottom:9px;font-size:14px;color:var(--grey);line-height:1.6}
+  ul.vlist li:before{content:"";position:absolute;left:0;top:8px;width:6px;height:6px;border-radius:2px;background:var(--navy)}
+  ul.vlist .vn{color:var(--navy);font-weight:700}
+  @media print{
+    body{background:#fff}.page{box-shadow:none;max-width:100%;padding:0}
+    .tabnav{display:none}.pane{display:block!important;break-inside:avoid}
+    .pane h2{margin-top:30px;padding-top:16px;border-top:2px solid var(--or)}
+    table.fm{min-width:0}@page{size:A4 landscape;margin:12mm}
+  }
+</style></head><body><div class="page">
+  <div class="brand">BEYOND <span>TOMORROW</span></div>
+  <div class="eyebrow">Financial Model · Confidential 2026</div>
+  <h1>Financial Model</h1>
+  <p class="sub">Bottom-up, four years (2026 to 2029), aligned to the deck. A media-led business, with summits and products alongside, and an investment (SPV) arm that earns management fees today and carries long-term optionality kept out of the numbers. The full editable version is the Excel workbook.</p>
+  <p class="meta">Prepared with Expand Health for Julian Issa · September 2026, synced to the September deck. Revenue is a bottom-up build reconciled to the deck; the cost/EBITDA build is flagged for sign-off in Assumptions.</p>
+  <div class="kpis">
+    <div class="kpi"><div class="n">$22.6M</div><div class="l">Revenue by 2029 (media-led)</div></div>
+    <div class="kpi"><div class="n">$9.2M</div><div class="l">EBITDA by 2029 (profitable from 2028)</div></div>
+    <div class="kpi"><div class="n">$1.5M</div><div class="l">Raise · $11M pre · $660k committed</div></div>
+    <div class="kpi"><div class="n">Upside</div><div class="l">SPV carry, long-term, not in the numbers</div></div>
+  </div>
+
+  <div class="tabnav">
+    <button class="tbtn active" data-p="narr">Narrative</button>
+    <button class="tbtn" data-p="pl">P&amp;L</button>
+    <button class="tbtn" data-p="rev">Revenue build</button>
+    <button class="tbtn" data-p="sum">Summits</button>
+    <button class="tbtn" data-p="spv">Investment / SPV</button>
+    <button class="tbtn" data-p="cap">Capital &amp; return</button>
+    <button class="tbtn" data-p="scn">Scenarios</button>
+    <button class="tbtn" data-p="ev">Enterprise value</button>
+    <button class="tbtn" data-p="asm">Assumptions</button>
+  </div>
+
+<div class="panes">
+
+<!-- NARRATIVE -->
+<section class="pane active" id="p-narr"><div class="narr">
+  <h2>The story the numbers tell</h2>
+  <p class="lead">Beyond Tomorrow is a media-led business. Sponsorship, AdSense and the newsletter are the engine and do the heavy lifting; the summits and products grow alongside; and the investment arm earns management fees today while its real prize, the carry, sits as long-term upside that is deliberately not in these numbers.</p>
+  <div class="nlabel">The numbers that carry the story</div>
+  <ul class="vlist">
+    <li><span class="vn">$22.6M of revenue by 2029</span>, from $430k in 2026, reconciled to the deck.</li>
+    <li><span class="vn">Media is the driver</span>, growing to ~$11.6M by 2029. Summits add ~$8M, products ~$2.7M.</li>
+    <li><span class="vn">Breakeven in 2027, profitable from 2028</span>, reaching ~$9.2M EBITDA by 2029.</li>
+    <li><span class="vn">The SPV arm earns only a 0.8% fee here</span> (~$320k by 2029). Its carry is real long-term upside, kept out of the headline.</li>
+  </ul>
+  <div class="nlabel">How to read it</div>
+  <p>The whole model is a business you can underwrite: a media company that scales to a multiple of eight figures, profitable, with real summits and a products line from 2028. The investment arm sits on top, earning fees on the capital it deploys; the carry on that capital is the moonshot, left as upside rather than baked into the forecast. So the "show me the numbers" investor gets a $22.6M media-led business, and the "I believe in you" investor gets the carry optionality for free.</p>
+  <p>2027 is the inflection: the summit launches with a major conference provider, and the LP relationships for the capital vehicle get locked. 2028 and 2029 are where media compounds hardest, the summits scale and the products land.</p>
+  <div class="note blue"><b>What is solid vs what to probe.</b> The summit trajectory is grounded in a signed JV proposal. The media ramp to ~$11.6M and the cost build are bottom-up constructions flagged for sign-off. The SPV fee is Julian's 0.8%; carry is deliberately excluded.</div>
+</div></section>
+
+<!-- P&L -->
+<section class="pane" id="p-pl"><h2>Consolidated P&amp;L, 2026 to 2029</h2>
+<div class="dur">All figures USD, reconciled to the deck. Media-led; SPV earns 0.8% management fees only, no carry.</div>
+<div class="tw"><table class="fm">
+<thead><tr><th>USD</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th></tr></thead>
+<tbody>
+<tr class="head"><td class="c1">Revenue</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="c1">Media (sponsorship, AdSense, newsletter)</td><td>$300K</td><td>$1.8M</td><td>$3.9M</td><td>$11.6M</td></tr>
+<tr><td class="c1">Summits (conference-provider JV)</td><td>$130K</td><td>$1.6M</td><td>$3.0M</td><td>$8.0M</td></tr>
+<tr><td class="c1">Products (from 2028)</td><td>$0</td><td>$0</td><td>$1.0M</td><td>$2.7M</td></tr>
+<tr class="sub"><td class="c1">Platform revenue</td><td>$430K</td><td>$3.4M</td><td>$7.9M</td><td>$22.3M</td></tr>
+<tr><td class="c1">Investment / SPV — fees only (0.8%)</td><td>$0</td><td>$0</td><td>$96K</td><td>$320K</td></tr>
+<tr class="tot"><td class="c1">Total revenue</td><td>$430K</td><td>$3.4M</td><td>$8.0M</td><td>$22.6M</td></tr>
+<tr class="head"><td class="c1">Operating costs</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="c1">Team &amp; salaries</td><td>$280K</td><td>$1.3M</td><td>$2.0M</td><td>$4.0M</td></tr>
+<tr><td class="c1">Marketing &amp; distribution</td><td>$80K</td><td>$750K</td><td>$1.5M</td><td>$3.8M</td></tr>
+<tr><td class="c1">Summit direct costs (JV share)</td><td>$130K</td><td>$850K</td><td>$1.6M</td><td>$2.4M</td></tr>
+<tr><td class="c1">Content &amp; production</td><td>$40K</td><td>$350K</td><td>$400K</td><td>$900K</td></tr>
+<tr><td class="c1">Product COGS &amp; fulfilment</td><td>$0</td><td>$0</td><td>$500K</td><td>$1.35M</td></tr>
+<tr><td class="c1">Investment arm (deal team)</td><td>$0</td><td>$60K</td><td>$120K</td><td>$200K</td></tr>
+<tr><td class="c1">Technology &amp; product</td><td>$30K</td><td>$90K</td><td>$250K</td><td>$500K</td></tr>
+<tr><td class="c1">Legal, accounting &amp; ops</td><td>$30K</td><td>$60K</td><td>$120K</td><td>$250K</td></tr>
+<tr class="sub"><td class="c1">Total operating costs</td><td>$590K</td><td>$3.46M</td><td>$6.49M</td><td>$13.4M</td></tr>
+<tr class="head"><td class="c1">Profitability</td><td></td><td></td><td></td><td></td></tr>
+<tr class="sub"><td class="c1">EBITDA</td><td class="neg">($160K)</td><td class="neg">($60K)</td><td>$1.51M</td><td>$9.2M</td></tr>
+<tr><td class="c1">EBITDA margin</td><td class="neg">nm</td><td class="neg">nm</td><td>19%</td><td>41%</td></tr>
+<tr><td class="c1">Tax (20%)</td><td>$0</td><td>$0</td><td>($302K)</td><td>($1.84M)</td></tr>
+<tr class="tot o"><td class="c1">Net profit / (loss)</td><td class="neg">($160K)</td><td class="neg">($60K)</td><td>$1.21M</td><td>$7.36M</td></tr>
+<tr class="head"><td class="c1">Cash</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="c1">Opening cash</td><td>$0</td><td>$1.34M</td><td>$1.28M</td><td>$2.49M</td></tr>
+<tr><td class="c1">+ Raise</td><td>$1.5M</td><td>$0</td><td>$0</td><td>$0</td></tr>
+<tr><td class="c1">+ Net profit / (loss)</td><td class="neg">($160K)</td><td class="neg">($60K)</td><td>$1.21M</td><td>$7.36M</td></tr>
+<tr class="sub"><td class="c1">Closing cash</td><td>$1.34M</td><td>$1.28M</td><td>$2.49M</td><td>$9.85M</td></tr>
+</tbody></table></div>
+<div class="note">Loss-making in 2026, close to breakeven in 2027 as the raise funds the team and content build, profitable from 2028, scaling to a ~41% EBITDA margin by 2029 as high-margin media dominates the mix. Cash never dips below ~$1.28M on the $1.5M raise; no second raise assumed. None of this depends on SPV carry.</div>
+</section>
+
+<!-- REVENUE BUILD -->
+<section class="pane" id="p-rev"><h2>Revenue build, by arm</h2>
+<div class="dur">Media is the driver. Each arm built from its own lines; the four sum to the deck totals.</div>
+<div class="tw"><table class="fm">
+<thead><tr><th>USD</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th></tr></thead>
+<tbody>
+<tr class="head"><td class="c1">Media — sponsorship &amp; audience</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="c1">Flagship sponsor 1</td><td>$100K</td><td>$520K</td><td>$1.3M</td><td>$4.0M</td></tr>
+<tr><td class="c1">Flagship sponsor 2</td><td>$80K</td><td>$460K</td><td>$1.0M</td><td>$3.2M</td></tr>
+<tr><td class="c1">Mid-tier sponsors</td><td>$60K</td><td>$350K</td><td>$700K</td><td>$1.8M</td></tr>
+<tr><td class="c1">Newsletter &amp; web placements</td><td>$40K</td><td>$250K</td><td>$500K</td><td>$1.5M</td></tr>
+<tr><td class="c1">AdSense / YouTube Partner</td><td>$20K</td><td>$220K</td><td>$400K</td><td>$1.08M</td></tr>
+<tr class="sub"><td class="c1">Media subtotal</td><td>$300K</td><td>$1.8M</td><td>$3.9M</td><td>$11.6M</td></tr>
+<tr class="head"><td class="c1">Summits (BT share)</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="c1">Satellites (US &amp; Europe events)</td><td>$130K</td><td>$500K</td><td>$700K</td><td>$1.0M</td></tr>
+<tr><td class="c1">Flagship summit (US, from Sept 2027)</td><td>$0</td><td>$1.1M</td><td>$2.3M</td><td>$7.0M</td></tr>
+<tr class="sub"><td class="c1">Summits subtotal</td><td>$130K</td><td>$1.6M</td><td>$3.0M</td><td>$8.0M</td></tr>
+<tr class="head"><td class="c1">Products (from 2028)</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="c1">Co-branded longevity products</td><td>$0</td><td>$0</td><td>$1.0M</td><td>$2.7M</td></tr>
+<tr class="head"><td class="c1">Investment / SPV</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="c1">AUM deployed (cumulative)</td><td>$0</td><td>$0</td><td>$12.0M</td><td>$40.0M</td></tr>
+<tr><td class="c1">Management fee (0.8% of AUM)</td><td>$0</td><td>$0</td><td>$96K</td><td>$320K</td></tr>
+<tr><td class="c1">Carry <span class="up">(long-term, not in numbers)</span></td><td>$0</td><td>$0</td><td>$0</td><td>$0</td></tr>
+<tr class="tot"><td class="c1">Total revenue</td><td>$430K</td><td>$3.4M</td><td>$8.0M</td><td>$22.6M</td></tr>
+</tbody></table></div>
+<div class="note">Media compounds from $1.8M (2027) to ~$11.6M (2029), and it is the main driver of the $22.6M. Summits and products fill in behind; the SPV arm earns fees on rising AUM.</div>
+</section>
+
+<!-- SUMMITS -->
+<section class="pane" id="p-sum"><h2>Summits — the conference-provider joint venture</h2>
+<div class="dur">A 12-month JV with a major conference provider: three satellite activations in the US and Europe that prove the format, then a standalone flagship summit in the US, then scaled. Figures are gross event revenue; the P&amp;L counts Beyond Tomorrow's contribution.</div>
+<div class="tw"><table class="fm">
+<thead><tr><th>Stage</th><th>Timing</th><th>Gross revenue</th><th>Sponsors</th></tr></thead>
+<tbody>
+<tr><td class="c1">Satellite I (US)</td><td>Autumn 2026</td><td>$43–68K</td><td>9 across 3 tiers</td></tr>
+<tr><td class="c1">Longevity congress, US (full day)</td><td>Dec 2026</td><td>$103–152K</td><td>10 + 100–150 VIP</td></tr>
+<tr><td class="c1">Satellite II (Europe)</td><td>Jun 2027</td><td>$40–56K</td><td>8 across 3 tiers</td></tr>
+<tr><td class="c1">The flagship summit, US (standalone)</td><td>Sep 2027</td><td>title $50K+ · 300+ VIP @ $2K</td><td>2-day flagship</td></tr>
+</tbody></table></div>
+<div class="tw"><table class="fm">
+<thead><tr><th>3-year trajectory (JV)</th><th>2026 Prove</th><th>2027 Launch (US)</th><th>2028+ Scale</th></tr></thead>
+<tbody>
+<tr><td class="c1">Revenue</td><td>$186–276K</td><td>$1.2–1.8M</td><td>$3.0M+</td></tr>
+<tr><td class="c1">Costs</td><td>$180–270K</td><td>$680–960K</td><td>$1.6M+</td></tr>
+<tr class="sub"><td class="c1">Net</td><td>~break-even</td><td>$520–840K</td><td>$1.4M+</td></tr>
+<tr><td class="c1">Net margin</td><td>~0%</td><td>~45%</td><td>~47%</td></tr>
+</tbody></table></div>
+<div class="note">2026 is a deliberate break-even proving year. Every step is gated go / no-go on the prior event's response. The flagship is in the US, September 2027, and scales to European and Asian editions.</div>
+</section>
+
+<!-- SPV -->
+<section class="pane" id="p-spv"><h2>Investment / SPV arm — fees now, carry later</h2>
+<div class="dur">SPVs sourced from summit deal-flow. Per Julian, the model counts only the 0.8% management fee on AUM. Carry is real but long-term, and is deliberately excluded from these numbers.</div>
+<div class="tw"><table class="fm">
+<thead><tr><th>USD</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th></tr></thead>
+<tbody>
+<tr><td class="c1">SPVs deployed in year</td><td>0</td><td>0 (LP relationships locked)</td><td>3–4 (first deployments)</td><td>5–8</td></tr>
+<tr><td class="c1">Cumulative AUM</td><td>$0</td><td>$0</td><td>$12.0M</td><td>$40.0M</td></tr>
+<tr class="head"><td class="c1">Revenue to BT</td><td></td><td></td><td></td><td></td></tr>
+<tr><td class="c1">Management fee (0.8% of AUM)</td><td>$0</td><td>$0</td><td>$96K</td><td>$320K</td></tr>
+<tr><td class="c1">Carry (excluded — long-term upside)</td><td>$0</td><td>$0</td><td>$0</td><td>$0</td></tr>
+<tr class="sub"><td class="c1">Total to BT (in model)</td><td>$0</td><td>$0</td><td>$96K</td><td>$320K</td></tr>
+</tbody></table></div>
+<div class="note blue"><b>Why carry is left out.</b> Carry only crystallises when the underlying companies exit, which is years out and unknowable over this horizon. Modelling it would put a speculative number in the headline. Instead the arm is shown at fees only, and the carry, ~20% of the gains on ~$40M+ of AUM, is genuine long-term upside on top of an already-profitable, media-led business.</div>
+</section>
+
+<!-- CAPITAL -->
+<section class="pane" id="p-cap"><h2>Capital &amp; return</h2>
+<div class="dur">A $1.5M seed at $11M pre-money. $660k committed; $20k SEIS remaining (advanced assurance approved).</div>
+<div class="tw"><table class="fm">
+<thead><tr><th>Use of funds</th><th>Amount</th><th>%</th><th>What it builds</th></tr></thead>
+<tbody>
+<tr><td class="c1">Team &amp; Operations</td><td>$600K</td><td>40%</td><td class="c1">Head of Commercial, Senior Producer, content, ops/finance</td></tr>
+<tr><td class="c1">Content &amp; Distribution</td><td>$525K</td><td>35%</td><td class="c1">Studio, video team, paid distribution, the audience flywheel</td></tr>
+<tr><td class="c1">Summit Execution</td><td>$225K</td><td>15%</td><td class="c1">Satellite activations + flagship summit pre-development</td></tr>
+<tr><td class="c1">Working Capital Buffer</td><td>$150K</td><td>10%</td><td class="c1">Legal, accounting, contingency</td></tr>
+<tr class="tot"><td class="c1">Total raise</td><td>$1.5M</td><td>100%</td><td></td></tr>
+</tbody></table></div>
+<div class="tw"><table class="fm">
+<thead><tr><th>Return profile</th><th>2026</th><th>2027</th><th>2028</th><th>2029</th></tr></thead>
+<tbody>
+<tr><td class="c1">EBITDA</td><td class="neg">($160K)</td><td class="neg">($60K)</td><td>$1.51M</td><td>$9.2M</td></tr>
+<tr><td class="c1">Closing cash</td><td>$1.34M</td><td>$1.28M</td><td>$2.49M</td><td>$9.85M</td></tr>
+<tr><td class="c1">Cumulative net profit</td><td class="neg">($160K)</td><td class="neg">($220K)</td><td>$988K</td><td>$8.35M</td></tr>
+</tbody></table></div>
+<div class="note">The raise funds 2026 and a near-breakeven 2027; the business is self-funding from 2028. On $1.5M in, a ~$22.6M profitable media business supports the deck's "40–60×" framing, and the SPV carry is the asymmetric upside above that.</div>
+</section>
+
+<!-- SCENARIOS -->
+<section class="pane" id="p-scn"><h2>Scenarios &amp; sensitivity</h2>
+<div class="dur">The base case does not need the carry. 2029 revenue and EBITDA under three cases.</div>
+<div class="tw"><table class="fm">
+<thead><tr><th>2029</th><th>Downside</th><th>Base (modelled)</th><th>+ Carry (long-term)</th></tr></thead>
+<tbody>
+<tr><td class="c1">Media</td><td>$10.0M</td><td>$11.6M</td><td>$11.6M</td></tr>
+<tr><td class="c1">Summits</td><td>$2.5M</td><td>$8.0M</td><td>$8.0M</td></tr>
+<tr><td class="c1">Products</td><td>$1.5M</td><td>$2.7M</td><td>$2.7M</td></tr>
+<tr><td class="c1">SPV fees</td><td>$0.3M</td><td>$0.3M</td><td>$0.3M</td></tr>
+<tr><td class="c1">SPV carry</td><td>$0</td><td>$0</td><td class="up">upside</td></tr>
+<tr class="sub"><td class="c1">Total revenue</td><td>$14.3M</td><td>$22.6M</td><td>$22.6M + carry</td></tr>
+<tr><td class="c1">Profitable?</td><td>Yes</td><td>Yes</td><td>Yes</td></tr>
+</tbody></table></div>
+<div class="note blue">Even in the downside, with media softer and products and summits behind plan, the company is still a profitable ~$14M business. The base case is a profitable $22.6M. And the carry, if and when it lands, is pure upside on a business that already works.</div>
+</section>
+
+<!-- ENTERPRISE VALUE -->
+<section class="pane" id="p-ev"><h2>Enterprise value — the two engines</h2>
+<div class="dur">Value the platform on a media multiple, and treat the investment arm as separate optionality.</div>
+<div class="tw"><table class="fm">
+<thead><tr><th>Component</th><th>Basis</th><th>2029 value (indicative)</th></tr></thead>
+<tbody>
+<tr><td class="c1">Platform (media + summits + products)</td><td>~$22.3M revenue × ~4–5× (media / creator comps)</td><td>~$90–110M</td></tr>
+<tr><td class="c1">Investment arm — fee stream</td><td>~$40M AUM, management-fee business</td><td>~$3–6M</td></tr>
+<tr><td class="c1">Investment arm — carry / deal upside</td><td>~20% carry on a growing SPV portfolio</td><td>The moonshot</td></tr>
+<tr class="tot o"><td class="c1">Combined</td><td>Platform underwritten + carry optionality</td><td>$95M+ and asymmetric</td></tr>
+</tbody></table></div>
+<div class="note">On the raise of $1.5M, the platform alone is the deck's "40–60×" business. The carry is where the "10,000×" language comes from: Beyond Tomorrow earns a share of the companies it helps build, and a single trillion-dollar outcome dwarfs the platform. Values are indicative.</div>
+</section>
+
+<!-- ASSUMPTIONS -->
+<section class="pane" id="p-asm"><h2>Assumptions — flagged for sign-off</h2>
+<div class="dur">Revenue reconciles to the deck. Each line flagged by how much to trust it.</div>
+<div class="tw"><table class="fm">
+<thead><tr><th>Input</th><th>Assumption</th><th>Confidence</th></tr></thead>
+<tbody>
+<tr><td class="c1">Raise / valuation</td><td>$1.5M at $11M pre, $660k committed, $20k SEIS left</td><td><span class="flag solid">From deck</span></td></tr>
+<tr><td class="c1">Media — the driver</td><td>Sponsors + AdSense + newsletter; ~$35k MRR by Aug 2026; scales to ~$11.6M by 2029</td><td><span class="flag warn">Aggressive ramp</span></td></tr>
+<tr><td class="c1">Summits</td><td>Conference-provider JV; documented trajectory; flagship (US) Sept 2027</td><td><span class="flag ok">Grounded</span></td></tr>
+<tr><td class="c1">Products</td><td>Co-branded longevity products, from 2028 → $2.7M by 2029, ~50% COGS</td><td><span class="flag warn">Aggressive 2029</span></td></tr>
+<tr><td class="c1">SPV management fee</td><td>0.8% of AUM (Julian's input)</td><td><span class="flag solid">Confirmed</span></td></tr>
+<tr><td class="c1">SPV carry</td><td>Excluded from the model — long-term upside only</td><td><span class="flag solid">Confirmed</span></td></tr>
+<tr><td class="c1">SPV AUM</td><td>First SPVs deployed 2028; $12M (2028) → $40M (2029) cumulative</td><td><span class="flag warn">To sign off</span></td></tr>
+<tr><td class="c1">Cost build</td><td>Team, marketing, content, events, COGS scale with revenue</td><td><span class="flag warn">Construction</span></td></tr>
+<tr><td class="c1">Tax</td><td>20% on taxable profit from 2028</td><td><span class="flag solid">Standard</span></td></tr>
+<tr><td class="c1">Basis</td><td>Calendar year 2026–2029; no second raise assumed</td><td><span class="flag solid">Set</span></td></tr>
+</tbody></table></div>
+<div class="note">The biggest thing to sign off is the media ramp to ~$11.6M by 2029, a large part of the deck's $22.6M now that carry is excluded. It is aggressive by design; the summit and SPV-fee mechanics are set. All drivers are the yellow cells in the Excel.</div>
+</section>
+
+</div>
+
+<div class="foot">Confidential. Beyond Tomorrow Media Ltd. Revenue reconciles to the deck; the cost/EBITDA build is a bottom-up construction flagged for sign-off. Projections, not guarantees. Prepared with Expand Health for Julian Issa · September 2026.</div>
+</div>
+<script>
+  (function(){
+    var btns=document.querySelectorAll('.tbtn'), panes=document.querySelectorAll('.pane');
+    btns.forEach(function(b){b.addEventListener('click',function(){
+      btns.forEach(function(x){x.classList.remove('active')});
+      panes.forEach(function(p){p.classList.remove('active')});
+      b.classList.add('active');
+      document.getElementById('p-'+b.dataset.p).classList.add('active');
+      window.scrollTo({top:0,behavior:'smooth'});
+    })});
+  })();
+</script>
+</body></html>
